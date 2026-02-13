@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,54 +11,84 @@
       <b>What food would you like to eat?</b>
     </div>
 
-    <div class="food-selection">
-      <div class="food-item">
-        <img src="food/burgers.jpeg" alt="Burgers, fries and fried chicken" />
-        <label
-          ><input
-            type="checkbox"
-            name="food"
-            value="Burgers, fries and fried chicken"
-          />
-          burgers and fried chicken</label
-        >
+    <form id="food">
+      <div class="food-selection">
+        <div class="food-item">
+          <img src="food/amala.webp" alt="Amala and ewedu soup" />
+          <label
+            ><input type="radio" name="food" value="Amala and ewedu soup" />
+            Amala and ewedu soup</label
+          >
+        </div>
+        <div class="food-item">
+          <img src="food/sharwarma.webp" alt="sharwarma" />
+          <label
+            ><input type="radio" name="food" value="sharwarma" />
+            Sharwarma</label
+          >
+        </div>
+        <div class="food-item">
+          <img src="food/white_rice.webp" alt="white rice" />
+          <label
+            ><input type="radio" name="food" value="white rice" /> White
+            rice</label
+          >
+        </div>
+        <div class="food-item">
+          <img src="food/jollof_spag.webp" alt="jollof spaghetti" />
+          <label
+            ><input type="radio" name="food" value="jollof spaghetti" /> Jollof
+            spaghetti</label
+          >
+        </div>
+        <div class="food-item">
+          <img src="food/jollof_rice.webp" alt="jollof rice" />
+          <label
+            ><input type="radio" name="food" value="jollof rice" /> Smoked
+            jollof rice</label
+          >
+        </div>
+        <div class="food-item">
+          <img src="food/fried_x_jollof.webp" alt="fried x jollof" />
+          <label
+            ><input type="radio" name="food" value="fried x jollof" /> Fried x
+            Jollof Rice</label
+          >
+        </div>
+        <div class="food-item">
+          <img src="food/money.webp" alt="steak" />
+          <label
+            ><input type="radio" name="food" value="steak" disabled /> Money
+            (out of stock)😭</label
+          >
+        </div>
       </div>
-      <div class="food-item">
-        <img src="food/dog.jpeg" alt="dog" />
-        <label
-          ><input type="checkbox" name="food" value="hotdog" /> hotdog</label
-        >
-      </div>
-      <div class="food-item">
-        <img src="food/koreanfood.jpeg" alt="koreanfood" />
-        <label
-          ><input type="checkbox" name="food" value="Korean food" /> korean
-          food</label
-        >
-      </div>
-      <div class="food-item">
-        <img src="food/pasta.jpeg" alt="pasta" />
-        <label><input type="checkbox" name="food" value="pasta" /> pasta</label>
-      </div>
-      <div class="food-item">
-        <img src="food/pizza.jpeg" alt="pizza" />
-        <label><input type="checkbox" name="food" value="pizza" /> pizza</label>
-      </div>
-      <div class="food-item">
-        <img src="food/salad.jpeg" alt="salad" />
-        <label><input type="checkbox" name="food" value="salad" /> salad</label>
-      </div>
-      <div class="food-item">
-        <img src="food/steak.jpeg" alt="steak" />
-        <label><input type="checkbox" name="food" value="steak" /> steak</label>
-      </div>
-      <div class="food-item">
-        <img src="food/sushi.jpeg" alt="sushi" />
-        <label><input type="checkbox" name="food" value="sushi" /> sushi</label>
-      </div>
-    </div>
-    <button class="button" onclick="location.href='dessert.html'">
-      Continue UWU
-    </button>
+      <button type="submit" class="button">Continue Ammy</button>
+    </form>
   </body>
+  <script>
+    const foodForm = document.getElementById("food");
+
+    foodForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const selectedFood = foodForm.querySelector('input[name="food"]:checked');
+
+      if (selectedFood) {
+        localStorage.setItem("selectedFood", selectedFood.value);
+        window.location.href = "dessert.html";
+      } else {
+        alert("My Baby😘, Please select a food item.");
+      }
+    });
+
+    window.addEventListener("load", function () {
+      const storedValue = localStorage.getItem("selectedFood");
+      if (storedValue) {
+        foodForm.querySelector(
+          'input[name="food"][value="' + storedValue + '"]',
+        ).checked = true;
+      }
+    });
+  </script>
 </html>

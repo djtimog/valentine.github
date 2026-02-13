@@ -1,0 +1,127 @@
+body {
+  text-align: center;
+  margin-top: 30px;
+  font-family: "Courier";
+  background-color: #fff5e4;
+  color: #ff9494;
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+textarea {
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ff9494;
+  padding: 5px;
+  font-family: "Courier";
+  min-width: 300px;
+  min-height: 100px;
+}
+#suggestionInputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.button {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 10px;
+  font-family: "courier";
+  margin-bottom: 20px;
+  background-color: #ffe3e1;
+  color: #e67373;
+  border-radius: 12px;
+  border: 2px solid #ffe3e1;
+}
+.open-modal {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.open-modal:hover {
+  background: #0056b3;
+}
+
+/* Modal background overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Show modal when targeted */
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal content box */
+.modal-content {
+  position: relative;
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.3s ease;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  text-decoration: none;
+  font-size: 24px;
+  color: #333;
+}
+.close:hover {
+  color: red;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mini-box {
+  background-color: #fbedec;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.link-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #ffe3e1;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.link-button:hover {
+  background-color: #fdd7d4;
+}

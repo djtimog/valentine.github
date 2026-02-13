@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suggestion</title>
+    <link rel="stylesheet" href="css/suggestion.css" />
+  </head>
+  <body>
+    <div>
+      <h1>Any suggestions for our next date?</h1>
+
+      <form>
+        <div class="suggestionInputContainer">
+          <textarea
+            type="text"
+            name="suggestion"
+            id="suggestionInput"
+            placeholder="Type your suggestion here..."
+          ></textarea>
+        </div>
+      </div>
+      <button class="button" type="submit">
+        Last page
+      </button>
+      </form>
+
+      <a href="#myModal" class="open-modal" id="form-modal">Submit form</a>
+
+      <div id="myModal" class="modal">
+    <div class="modal-content"><a href="#" class="close">&times;</a></div>
+</div>
+  </body>
+  <script>
+    const modalButton = document.getElementById("form-modal");
+    const modal = document.getElementById("myModal");
+    const suggestionForm = document.querySelector("form");
+    const suggestionInput = document.getElementById("suggestionInput");
+
+    modalButton.addEventListener("click", function (event) {
+      localStorage.setItem("suggestion", suggestionInput.value);
+      const date = localStorage.getItem("selectedDate");
+      const food = localStorage.getItem("selectedFood");
+      const desert = localStorage.getItem("selectedDessert");
+      const suggestion = localStorage.getItem("suggestion");
+
+      const modalContent = `
+        
+        <h2>Our Date Details</h2>
+        <div class="mini-box"><p>Date: ${date}</p> <a href="date.html">Edit</a> </div>
+        <div  class="mini-box"><p>Food: ${food}</p> <a href="food.html">Edit</a></div>
+        <div class="mini-box"><p>Desert: ${desert}</p> <a href="dessert.html">Edit</a></div>
+        <div class="mini-box"><p>Suggestion: ${suggestion  ? suggestion : "None provided"}</p> <a href="suggestion.html">Edit</a></div>
+        <a href="mailto:ogunleyetimilehin15@gmail.com
+          ?subject=Date%20Night%20Submission
+          &body=Hi%20there,%0D%0A%0D%0AI%20just%20wanted%20to%20say%20...
+          I%20love%20you%20and%20this%20is%20our%20date%20details:%0D%0A%0D%0A
+          Date:%20${date}%0D%0A
+          Food:%20${food}%0D%0A
+          Dessert:%20${desert}%0D%0A
+          Suggestion:%20${suggestion ? suggestion : 'None provided'}
+          %0D%0A%0D%0A%20Looking%20forward%20to%20our%20date!%0D%0A%0D%0A
+          Best%20regards,%0D%0A
+          Your%20Valentine
+          " class="link-button">
+    Submit via Email
+</a>
+
+      `;
+      modal.querySelector(".modal-content").innerHTML += modalContent;
+    });
+    suggestionForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      
+      localStorage.setItem("suggestion", suggestionInput.value);
+      window.location.href = "lastpage.html";
+    });
+
+    window.addEventListener("load", function () {
+      const storedValue = localStorage.getItem("suggestion");
+      if (storedValue) {
+        suggestionInput.value = storedValue;
+      }
+    });
+  </script>
+</html>
