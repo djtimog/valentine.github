@@ -20,12 +20,16 @@
           ></textarea>
         </div>
       </div>
-      <button class="button" type="submit">
-        Last page
-      </button>
-      </form>
+      <div>
+        <button class="button" type="submit">
+          Last page
+        </button>
+        </form>
+  
+        <a href="#myModal" class="open-modal" id="form-modal">Submit form</a>
+      </div>
 
-      <a href="#myModal" class="open-modal" id="form-modal">Submit form</a>
+      <a href="love_letter.jpeg" download="love_letter.jpeg">Download Love letter 💌</a>
 
       <div id="myModal" class="modal">
     <div class="modal-content"><a href="#" class="close">&times;</a></div>
@@ -53,7 +57,7 @@
         <div class="mini-box"><p>Suggestion: ${suggestion  ? suggestion : "None provided"}</p> <a href="suggestion.html">Edit</a></div>
         <a href="mailto:ogunleyetimilehin15@gmail.com
           ?subject=Date%20Night%20Submission
-          &body=Hi%20there,%0D%0A%0D%0AI%20just%20wanted%20to%20say%20...
+          &body=Hi%20there,%0D%0A%0D%0AI%20just%20wanted%20to%20say%20...%0D%0A
           I%20love%20you%20and%20this%20is%20our%20date%20details:%0D%0A%0D%0A
           Date:%20${date}%0D%0A
           Food:%20${food}%0D%0A
@@ -63,9 +67,8 @@
           Best%20regards,%0D%0A
           Your%20Valentine
           " class="link-button">
-    Submit via Email
-</a>
-
+          Submit via Email
+        </a>
       `;
       modal.querySelector(".modal-content").innerHTML += modalContent;
     });
